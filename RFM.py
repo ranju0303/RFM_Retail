@@ -6,7 +6,7 @@ Created on Mon Nov  6 08:48:57 2017
 """
 
 import pandas as pd
-
+import numpy as np
 import matplotlib.pyplot as plt
 import seaborn as sns
 color = sns.color_palette()
