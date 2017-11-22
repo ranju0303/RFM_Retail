@@ -4,16 +4,56 @@ Created on Mon Nov  6 08:48:57 2017
 
 @author: abhishekk
 """
-#Deekshaaassssssssss
+
 import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
 import seaborn as sns
 color = sns.color_palette()
+from sklearn.cluster import KMeans
+import pylab as pl
+from sklearn import preprocessing
 
-
-#def Clustering_Analysis():
+#Devya
+def Clustering_Analysis(data):
+    train = data
+    train.head()    
+    #cols= ['Country','CustomerId']
+    #cols= ['CustomerID','Country','RFM_Score']
     
+    x=train['CustomerID']
+    y = train['RFM_Score']     
+    
+    #Finding clusters
+    Nc = range(1, 10)
+    kmeans = [KMeans(n_clusters=i) for i in Nc]    
+    print (kmeans)    
+    score = [kmeans[i].fit(y).score(y) for i in range(len(kmeans))]    
+    print(score)
+    
+    #Plotting Elbow Curve
+    pl.plot(Nc, score)    
+    pl.xlabel('Number of Clusters')    
+    pl.ylabel('Score')    
+    pl.title('Elbow Curve')    
+    pl.show()
+    
+    #Implementing Kmeans for 5 clusters
+    kmeans=KMeans(n_clusters=5)    
+    kmeansoutput=kmeans.fit(y)
+    
+    # These are our fitted labels for clusters -- the first cluster has label 0, and the second has label 1.
+    labels = kmeans.labels_    
+    print (kmeansoutput)    
+    pl.figure('5 Cluster K-Means')    
+    pl.scatter(x,y, c=kmeansoutput.labels_)    
+    print(kmeansoutput.cluster_centers_)    
+    pl.xlabel('CustomerID')    
+    pl.ylabel('RFM_Score')    
+    pl.title('5 Cluster K-Means')    
+    pl.show()
+    train['Cluster']=labels
+    train.to_csv('labelled_Data.csv')
 
 def data_manipulation(data):
     
@@ -213,6 +253,8 @@ if __name__ == "__main__":
     e=Cust_All['CustomerID'].unique()
     ids = Cust_All["CustomerID"]
     print (e)
+    
+    Clustering_Analysis(Cust_All)
     #e=Cust_All['CustomerID'].unique()
     #ids = Cust_All["CustomerID"]
     #Cust_All[ids.isin(ids[ids.duplicated()])].sort("CustomerID")    
