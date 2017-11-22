@@ -1,0 +1,5 @@
+Recommendation Systems Link
+
+https://www.kaggle.com/benhamner/rf-xgboost-example
+
+https://cambridgespark.com/content/tutorials/implementing-your-own-recommender-systems-in-Python/index.html
