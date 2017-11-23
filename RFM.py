@@ -259,13 +259,12 @@ if __name__ == "__main__":
     ids = Cust_All["CustomerID"]
     print (e)
     
-    #Cust_All['RFM_Score']=[i for i in Cust_All]
-    
+    #Cust_All['RFM_Score']=[i for i in Cust_All]    
     #Clustering_Analysis(Cust_All)
     #e=Cust_All['CustomerID'].unique()
     #ids = Cust_All["CustomerID"]
-    #Cust_All[ids.isin(ids[ids.duplicated()])].sort("CustomerID")    
+    #Cust_All[ids.isin(ids[ids.duplicated()])].sort("CustomerID")  
     
-#    Apriori_Data_Preparation(data)
+    #Apriori_Data_Preparation(data)
 
 
