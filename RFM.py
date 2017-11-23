@@ -61,8 +61,13 @@ def data_manipulation(data):
     
     data['Total_Price']=data['Quantity']*data['UnitPrice']
     data['date']=data['InvoiceDate'].str.extract('(.*)/').str.extract('(.*)/')
-    data['date']=data.date.astype(str).str.zfill(2)
+    print ("Date Format",data['date'])
+    data['date']=[str(i) for i in data['date']]
+    #data['date']=data.date.astype(str).str.zfill(2)
+    #print ('date format 11',data['date'])    
+    #print ("Date Format 2",data['InvoiceDate'].str.extract('/(.*) ').str.extract('/(.*)'))
     data['date']=data['InvoiceDate'].str.extract('/(.*) ').str.extract('/(.*)') + data['date']
+    print (data['date'])
     data.date = pd.to_numeric(data.date, errors='coerce')
     
     Cust_country=data[['Country','CustomerID']].drop_duplicates()
@@ -254,7 +259,7 @@ if __name__ == "__main__":
     ids = Cust_All["CustomerID"]
     print (e)
     
-   # Cust_All['RFM_Score']=[concat(i[])]
+    Cust_All['RFM_Score']=[pd.concat(i[10],i[11],i[12]) for i in Cust_All]
     
     Clustering_Analysis(Cust_All)
     #e=Cust_All['CustomerID'].unique()
