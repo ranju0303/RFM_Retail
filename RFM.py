@@ -2,7 +2,7 @@
 """
 Created on Mon Nov  6 08:48:57 2017
 
-@author: abhishekk
+@author: abhishekk & Devya &Deeksha
 """
 
 import pandas as pd
@@ -14,7 +14,7 @@ from sklearn.cluster import KMeans
 import pylab as pl
 from sklearn import preprocessing
 
-#Devya
+#Devya&Deeksha&panipuri
 def Clustering_Analysis(data):
     train = data
     train.head()    
@@ -217,7 +217,7 @@ if __name__ == "__main__":
     
     try:
         print("helloooo")
-        data=pd.read_csv('D:\\Satander Data\\OnlineRetaiil.csv')
+        data=pd.read_csv('D:\\Satander Data\\OnlineRetail.csv')
         data.head(10)
     except FileNotFoundError as e:
         print ('File Not Found')
@@ -253,6 +253,8 @@ if __name__ == "__main__":
     e=Cust_All['CustomerID'].unique()
     ids = Cust_All["CustomerID"]
     print (e)
+    
+   # Cust_All['RFM_Score']=[concat(i[])]
     
     Clustering_Analysis(Cust_All)
     #e=Cust_All['CustomerID'].unique()
