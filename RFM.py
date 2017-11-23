@@ -14,7 +14,7 @@ from sklearn.cluster import KMeans
 import pylab as pl
 from sklearn import preprocessing
 
-#Devya&Deeksha&panipuri
+
 def Clustering_Analysis(data):
     train = data
     train.head()    
