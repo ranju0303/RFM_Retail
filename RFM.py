@@ -217,6 +217,8 @@ def Apriori_Data_Preparation(data):
         #print(inputData_Unique['CustomerID'][i])
         final.append(new["StockCode"].to_string(header=False,index=False).split('\n'))
     
+    return final
+    
 
 if __name__ == "__main__":
     
@@ -265,6 +267,6 @@ if __name__ == "__main__":
     #ids = Cust_All["CustomerID"]
     #Cust_All[ids.isin(ids[ids.duplicated()])].sort("CustomerID")  
     
-    #Apriori_Data_Preparation(data)
+    Apriori_Data=Apriori_Data_Preparation(data)
 
 

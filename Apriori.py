@@ -163,7 +163,6 @@ if __name__ == "__main__":
 	                    toRetRules.append(((tuple(element), tuple(remain)),
 	                                       confidence))
     print (toRetRules)
-    
 
 
 
